@@ -45,7 +45,7 @@ class List
 
   def find(value)
     node = @head
-    return false unless @head.tail
+    return false unless node
     return node if node.value == value
 
     while (node = node.tail)
