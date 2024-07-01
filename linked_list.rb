@@ -1,4 +1,5 @@
 # a series of nodes holding a value and reference to the previous node.
+# eg PR: https://github.com/rubygems/rubygems/pull/1188
 require 'bundler/inline'
 
 gemfile do
@@ -79,4 +80,3 @@ class List
     end
   end
 end
-
