@@ -30,6 +30,7 @@ class List
       @head = Node.new(value)
     else
       find_tail.tail = Node.new(value)
+    end
   end
 
   def append_after(target, value)

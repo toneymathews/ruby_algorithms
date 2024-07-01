@@ -30,7 +30,7 @@ class DC
 
     connections_of(x).each { |index| @array[index] = @array[y] }
 
-    puts @array
+    # puts @array
   end
 
   def connected?(x, y)
@@ -42,17 +42,17 @@ class DC
   # Returns an array of other nodes that are connected to the node at the first index
   def connections_of(node)
     connections = @array.each_index.select { |index| @array[index] == @array[node] }
-    puts "Connections of #{node} are #{connections}"
+    # puts "Connections of #{node} are #{connections}"
 
     connections
   end
 end
 
-dc = DC.new(10)
-puts dc.array
+# dc = DC.new(10)
+# puts dc.array
 
-dc.union(2,3)
-dc.union(4,5)
-dc.union(6,7)
-dc.union(7,5)
+# dc.union(2,3)
+# dc.union(4,5)
+# dc.union(6,7)
+# dc.union(7,5)
 

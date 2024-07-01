@@ -1,16 +1,10 @@
-require './dc_quick_find.rb'
-
-require 'bundler/inline'
-
-gemfile do
-  source 'https://rubygems.org'
-  gem 'debug'
-end
+require 'test_helper'
+require 'ruby_algorithms/dc_quick_find'
 
 
-class DCQuickFindTest 
-  def initialize
-    @dc = DC.new(10)
+class DCQuickFindTest < Test::Unit::TestCase
+  def setup
+    @dc = ::DC.new(10)
   end
 
   def test_union_two_different_elements
@@ -22,8 +16,6 @@ class DCQuickFindTest
 
   def test_union_two_same_elements_makes_no_change
     @dc = DC.new(10)
-    dupe = @dc.array
-
     @dc.union(2,2)
 
     assert_equal 2, @dc.array[2]
@@ -42,15 +34,15 @@ class DCQuickFindTest
 
   private
 
-  def assert_equal(expected, actual)
-    if expected != actual 
-      raise "Test failed. Expected: #{expected}, Actual: #{actual}"
-    end
-  end
+  # def assert_equal(expected, actual)
+  #   if expected != actual 
+  #     raise "Test failed. Expected: #{expected}, Actual: #{actual}"
+  #   end
+  # end
 end
 
 
-dc = DCQuickFindTest.new
-dc.test_union_two_different_elements
-dc.test_union_two_same_elements_makes_no_change
-dc.test_union_two_different_elements_with_other_connected_elements
+# dc = DCQuickFindTest.new
+# dc.test_union_two_different_elements
+# dc.test_union_two_same_elements_makes_no_change
+# dc.test_union_two_different_elements_with_other_connected_elements
