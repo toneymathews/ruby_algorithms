@@ -63,7 +63,7 @@ class List
 
   def delete(value)
     if @head.value == value
-      @head = @head.next if @head.next
+      @head = @head.tail if @head.tail
       return
     end
 
@@ -79,5 +79,35 @@ class List
     while node = node.tail
       return node if node.tail && node.tail.value == value
     end
+  end
+
+  def remove_duplicates
+    # brute forceadd to array. if element already exists, delete it.
+    # time complexity is O(n) for the list * O(n) for traversing the array.
+    # If we can sort the array, then the time complexity for finding an element will be removed
+    # time complexity for deleting an element in the list is constant time
+
+    node = @head
+    array = []
+    return unless node
+    while node
+      if array.include?(node.value)
+        delete(node.value)
+      else
+        array.push(node.value)
+      end
+      node = node.tail
+    end
+  end
+
+  def size
+    return unless @head
+    count = 1
+    node = @head
+
+    while node = node.tail
+      count +=1
+    end
+    count
   end
 end

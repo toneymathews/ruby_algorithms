@@ -62,4 +62,28 @@ class LinkedListTest < Test::Unit::TestCase
 
     assert_equal 4, list.find_before(5).value
   end
+
+  def test_remove_duplicates
+    list = ::List.new
+    list.append(1)
+    list.append(2)
+    list.append(3)
+    list.append(3)
+    list.append(5)
+    list.append(1)
+    list.append(2)
+    list.append(3)
+    list.append(4)
+    list.append(5)
+    assert_equal 10, list.size
+    
+    list.remove_duplicates
+    assert_equal 5, list.size
+    assert_not_nil list.find(1)
+    assert_not_nil list.find(3)
+    assert_not_nil list.find(4)
+    assert_not_nil list.find(5)
+
+  end
+
 end
