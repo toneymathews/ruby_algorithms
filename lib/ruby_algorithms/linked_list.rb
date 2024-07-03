@@ -37,7 +37,7 @@ class List
     node = find(target)
 
     return unless node
-    
+
     old_node = node.tail
     node.tail = Node.new(value)
     node.tail.tail = old_node
@@ -109,5 +109,21 @@ class List
       count +=1
     end
     count
+  end
+
+  # time complexity is O(n squared)
+  def remove_duplicates_without_buffer
+    node = @head
+    return unless node
+    while node
+      pointer = node.tail
+      while pointer
+        if node.value == pointer.value
+          node.tail = pointer.tail
+        end
+        pointer = pointer.tail
+      end
+      node = node.tail
+    end
   end
 end
